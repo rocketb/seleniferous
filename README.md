@@ -14,7 +14,7 @@ Usage:
   seleniferous [flags]
 
 Flags:
-      --listhen-port string                  port to use for incomming requests (default "4445")
+      --listen-port string                  port to use for incomming requests (default "4445")
       --browser-port string                  browser port (default "4444")
       --proxy-default-path string            path used by handler (default "/session")
       --idle-timeout duration                time in seconds for idle session (default 2m0s)

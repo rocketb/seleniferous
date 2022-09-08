@@ -7,7 +7,7 @@ import (
 	"k8s.io/client-go/kubernetes"
 )
 
-//Config basic config
+// Config basic config
 type Config struct {
 	BrowserPort     string
 	ProxyPath       string
@@ -21,7 +21,7 @@ type Config struct {
 	Quit            chan error
 }
 
-//App ...
+// App ...
 type App struct {
 	browserPort     string
 	proxyPath       string
@@ -35,7 +35,7 @@ type App struct {
 	quit            chan error
 }
 
-//New ...
+// New ...
 func New(conf *Config) *App {
 	return &App{
 		browserPort:     conf.BrowserPort,

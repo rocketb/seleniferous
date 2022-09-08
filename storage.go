@@ -6,9 +6,9 @@ import (
 )
 
 type session struct {
-	ID         string
-	URL        *url.URL
-	OnTimeout  chan struct{}
+	ID        string
+	URL       *url.URL
+	OnTimeout chan struct{}
 }
 
 type Storage struct {
@@ -16,7 +16,7 @@ type Storage struct {
 	sync.RWMutex
 }
 
-//NewStorage ...
+// NewStorage ...
 func NewStorage() *Storage {
 	return &Storage{
 		sessions: make(map[string]*session, 1),
@@ -37,7 +37,7 @@ func (s *Storage) put(sessionID string, platform *session) {
 	s.sessions[sessionID] = platform
 }
 
-//IsEmpty ...
+// IsEmpty ...
 func (s *Storage) IsEmpty() bool {
 	s.Lock()
 	defer s.Unlock()

@@ -78,7 +78,7 @@ func (s sess) delete() error {
 	return nil
 }
 
-//HandleSession ...
+// HandleSession ...
 func (app *App) HandleSession(w http.ResponseWriter, r *http.Request) {
 
 	logger := app.logger.WithFields(logrus.Fields{
@@ -184,7 +184,7 @@ func (app *App) HandleSession(w http.ResponseWriter, r *http.Request) {
 	}).ServeHTTP(w, r)
 }
 
-//HandleProxy ...
+// HandleProxy ...
 func (app *App) HandleProxy(w http.ResponseWriter, r *http.Request) {
 
 	done := make(chan func())
@@ -261,7 +261,7 @@ func (app *App) HandleProxy(w http.ResponseWriter, r *http.Request) {
 							}
 						}
 					}
-					r.URL.Host, r.URL.Path = sess.URL.Host, path.Clean(path.Join(sess.URL.Path, strings.Join(fragments[5:], "/")))
+					r.URL.Host, r.URL.Path = sess.URL.Host, path.Clean(path.Join(sess.URL.Path, strings.Join(fragments[6:], "/")))
 					r.Host = "localhost"
 					logger.Info("proxy session")
 					return
@@ -298,17 +298,17 @@ func (app *App) HandleProxy(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-//HandleDevTools ...
+// HandleDevTools ...
 func (app *App) HandleDevTools(w http.ResponseWriter, r *http.Request) {
 	app.proxy(w, r, ports.Devtools)
 }
 
-//HandleDownload ...
+// HandleDownload ...
 func (app *App) HandleDownload(w http.ResponseWriter, r *http.Request) {
 	app.proxy(w, r, ports.Fileserver)
 }
 
-//HandleClipboard ..
+// HandleClipboard ..
 func (app *App) HandleClipboard(w http.ResponseWriter, r *http.Request) {
 	app.proxy(w, r, ports.Clipboard)
 }
